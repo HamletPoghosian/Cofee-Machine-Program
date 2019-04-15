@@ -11,7 +11,7 @@ namespace CofeeMachineProgram
 		static void Main(string[] args)
 		{
 			int coin = 0;
-		    int myCoin=0;
+		        int myCoin=0;
 			bool myhoice = true;
 			Console.Write("Please throw a coin. \nYou can only throw (50, 100, 200, 500) coins \n");
 			Console.Write("This is Coffee type and their prices \n1-coffe = 100  \n2-maccofe  = 200 \n3-strong coffe = 450 \n");
