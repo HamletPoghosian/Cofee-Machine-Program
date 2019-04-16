@@ -16,15 +16,15 @@ namespace CofeeMachineProgram
         public string CreatResurs()
         {
             string newFile = "CoffeeResurs";
-
             string path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), newFile);
+            string ResursTxtfile = path + @"\Resurs.txt"; 
 
             if (!Directory.Exists(path))
             {
                 try
                 {
                     Directory.CreateDirectory(path);
-                    string ResursTxtfile = path + @"\Resurs.txt";
+                    
                     string resurs = "Coffee 1000 ,Whater 1000 ,Sugar 1000";
                    
                     File.WriteAllText(ResursTxtfile,resurs );
@@ -41,7 +41,7 @@ namespace CofeeMachineProgram
                 }
 
             }
-            return " ";
+            return ResursTxtfile;
         }
         public void CreatFinishResurs(int wather,int sugar,int coffee)
         {
@@ -50,10 +50,20 @@ namespace CofeeMachineProgram
 
         public void ResursPourMachin(string ResursTxtfile)
         {
-            string[] lines = File.ReadAllLines(ResursTxtfile);
-            foreach (var item in lines)
+          
+            try
+            {   
+                using (StreamReader streamr = new StreamReader(ResursTxtfile))
+                {
+                    
+                    string line = streamr.ReadToEnd();
+                    Console.WriteLine(line);
+                }
+            }
+            catch (IOException e)
             {
-                
+                Console.WriteLine("The file could not be read:");
+                Console.WriteLine(e.Message);
             }
         }
     }
