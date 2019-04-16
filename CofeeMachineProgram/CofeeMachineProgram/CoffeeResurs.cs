@@ -43,7 +43,7 @@ namespace CofeeMachineProgram
             }
             return " ";
         }
-        public void CreatResurs(int wather,int sugar,int coffee)
+        public void CreatFinishResurs(int wather,int sugar,int coffee)
         {
 
         }
