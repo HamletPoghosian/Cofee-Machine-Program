@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -44,9 +45,11 @@ namespace CofeeMachineProgram
             }
             return ResursTxtfile;
         }
-        public void CreatFinishResurs(int wather, int sugar, int coffee)
+        public void CreatFinishResurs(int[] resurs)
         {
-
+           
+            
+            
         }
 
         public void ResursPourMachin(string ResursTxtfile)
