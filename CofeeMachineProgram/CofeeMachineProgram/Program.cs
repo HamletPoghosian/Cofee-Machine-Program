@@ -10,6 +10,9 @@ namespace CofeeMachineProgram
     {
         static void Main(string[] args)
         {
+            CoffeeResurs cofRes = new CoffeeResurs();
+            string resursfFileValue=cofRes.CreatResurs();
+            cofRes.ResursPourMachin(resursfFileValue);
             int coin = 0;
             int myCoin = 0;
             bool isThrow = true;

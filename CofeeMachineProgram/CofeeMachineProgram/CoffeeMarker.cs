@@ -24,8 +24,8 @@ namespace CofeeMachineProgram
         public CoffeeNumber CoffeeType { get; set; }
         public CoffeeMarker(int coffenumber)
         {
-
             CoffeeType = (CoffeeNumber)coffenumber;
         }
+
     }
 }
