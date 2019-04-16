@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace CofeeMachineProgram
 {
-   public  class CoffeeResurs
+    public class CoffeeResurs
     {
         public CoffeeResurs()
         {
@@ -17,17 +18,17 @@ namespace CofeeMachineProgram
         {
             string newFile = "CoffeeResurs";
             string path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), newFile);
-            string ResursTxtfile = path + @"\Resurs.txt"; 
+            string ResursTxtfile = path + @"\Resurs.txt";
 
             if (!Directory.Exists(path))
             {
                 try
                 {
                     Directory.CreateDirectory(path);
-                    
-                    string resurs = "Coffee 1000 ,Whater 1000 ,Sugar 1000";
-                   
-                    File.WriteAllText(ResursTxtfile,resurs );
+
+                    string resurs = "2000,1000,3000";
+
+                    File.WriteAllText(ResursTxtfile, resurs);
                     return ResursTxtfile;
                 }
                 catch (IOException ie)
@@ -43,21 +44,39 @@ namespace CofeeMachineProgram
             }
             return ResursTxtfile;
         }
-        public void CreatFinishResurs(int wather,int sugar,int coffee)
+        public void CreatFinishResurs(int wather, int sugar, int coffee)
         {
 
         }
 
         public void ResursPourMachin(string ResursTxtfile)
         {
-          
+            int [] resurs=new int [3] ;
+            string resultString = string.Empty;
+            int temp = 0;
             try
-            {   
+            {
                 using (StreamReader streamr = new StreamReader(ResursTxtfile))
                 {
-                    
+
                     string line = streamr.ReadToEnd();
-                    Console.WriteLine(line);
+                    for (int i = 0; i < line.Length; i++)
+                    {
+                        if (line[i]>='0'&& line[i]<='9')
+                        {
+                            resultString += line[i];
+                        }
+                        if (line[i] == ','||i==line.Length-1)
+                        {
+                            resurs[temp] = int.Parse(resultString);
+                            temp++;
+                            resultString = string.Empty;
+                        }
+                            //resultString += Regex.Match(line, @"\d+").Value;
+                    }
+
+                    
+                    Console.WriteLine(resurs);
                 }
             }
             catch (IOException e)
