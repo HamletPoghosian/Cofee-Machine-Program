@@ -53,6 +53,7 @@
                             }
                     }
                 }
+     
 ```
 
 #### There are 10 types of Caffee . Which are prepared from the following resources:
@@ -67,4 +68,44 @@
 - Ristretto    900 (: 50 water, 50 sugar, 30 coffee)
 - Maccoffee   1000(: 50 water, 50 sugar, 50 coffee)
 
-#### When you choose the type of Caffee, checks whether your money meets the price of caffeine and there are enough resources available on your device,
+#### When you choose the type of Caffee, checks whether your money meets the price of caffeine and there are enough resources available on your device
+```csharp
+       ///   Select Coffee Type 
+                
+                  while (selectCoffe)
+            {
+                try
+                {
+                    if (myCoin < 50)
+                    {
+                        selectCoffe = false;
+                        Console.WriteLine("Your many end ");
+                        break;
+                    }
+                    coffeeType = int.Parse(Console.ReadLine());
+                    if (coffeeType >= 1 && coffeeType <= 10)
+                    {
+                    
+                        CoffeeMarker cofMarker = new CoffeeMarker(coffeeType);
+                        Console.WriteLine(cofMarker.CoffeeType);
+                    }
+                }
+                catch (ArgumentNullException)
+                {
+
+                    Console.WriteLine("1-10 number");
+                }
+                catch (FormatException)
+                {
+
+                    Console.WriteLine("1-10 number");
+                }
+                catch (Exception)
+                {
+
+                    throw;
+                }
+
+            }
+```
+#### After covering the caffeine, the user may be charged 0 and order it again, if available coin
