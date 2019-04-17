@@ -109,3 +109,70 @@
             }
 ```
 #### After covering the caffeine, the user may be charged 0 and order it again, if available coin
+### In the program there is a DataBase where the resurs of the Coffee Machin and the trade data are stored
+#### The program updates the database after ordering the Coffee
+```csharp
+public void InsertDBResurs(int[] resurs)
+        {
+            if (resurs != null)
+
+            {
+                try
+                {
+                    using (SqlConnection openCon = new SqlConnection(conectonString))
+                    {
+                        string saveResurs = "INSERT INTO [Table] VALUES (@Id,@Coffee,@Whater,@Sugar)";
+
+                        using (SqlCommand querySaveResurs = new SqlCommand(saveResurs, openCon))
+                        {
+                            openCon.Open();
+                            querySaveResurs.Parameters.Add(new SqlParameter("Id", 1));
+                            querySaveResurs.Parameters.Add(new SqlParameter("Coffee", resurs[0]));
+                            querySaveResurs.Parameters.Add(new SqlParameter("Whater", resurs[1]));
+                            querySaveResurs.Parameters.Add(new SqlParameter("Sugar", resurs[2]));
+                            querySaveResurs.ExecuteNonQuery();
+                            openCon.Close();
+
+                        }
+                    }
+                }
+                catch (NullReferenceException)
+                {
+
+                    Console.WriteLine("Not Resurs");
+                }
+                catch (InvalidCastException)
+                {
+
+                    Console.WriteLine("Not Resurs");
+                }
+                catch (InvalidOperationException)
+                {
+
+                    Console.WriteLine("Not Resurs");
+                }
+                catch (ArgumentNullException)
+                {
+
+                    Console.WriteLine("Not Resurs");
+                }
+                catch (SqlException)
+                {
+
+                    Console.WriteLine("Not Resurs");
+                }
+                catch (Exception)
+                {
+
+                    throw;
+                }
+
+            }
+            else
+            {
+                Console.WriteLine("Dont Working Coffee Machine");
+            }
+
+
+        }
+```
