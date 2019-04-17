@@ -17,19 +17,42 @@ namespace CofeeMachineProgram
         }
         public void InsertDBResurs(int[] resurs)
         {
-            using (SqlConnection openCon = new SqlConnection(conectonString))
+            if (resurs != null)
+
             {
-                string saveResurs = "INSERT INTO [Table] (Coffee,Whater,Sugar) VALUES ('" + resurs[0] + "','" + resurs[1] + "','" + resurs[2] + "')";
-
-                using (SqlCommand querySaveResurs = new SqlCommand(saveResurs))
+                try
                 {
-                    querySaveResurs.Connection = openCon;
-                    openCon.Open();
-                    querySaveResurs.ExecuteNonQuery();
-                    openCon.Close();
+                    using (SqlConnection openCon = new SqlConnection(conectonString))
+                    {
+                        string saveResurs = "INSERT INTO [Table] (Coffee,Whater,Sugar) VALUES ('" + resurs[0] + "','" + resurs[1] + "','" + resurs[2] + "')";
 
+                        using (SqlCommand querySaveResurs = new SqlCommand(saveResurs))
+                        {
+                           // querySaveResurs.Connection = openCon;
+                            openCon.Open();
+                            querySaveResurs.ExecuteNonQuery();
+                            openCon.Close();
+
+                        }
+                    }
                 }
+                catch (NullReferenceException)
+                {
+
+                    Console.WriteLine("Not Resurs");
+                }
+                catch (Exception)
+                {
+
+                    throw;
+                }
+
             }
+            else
+            {
+                Console.WriteLine("Dont Working Coffee Machine");
+            }
+           
 
         }
     }

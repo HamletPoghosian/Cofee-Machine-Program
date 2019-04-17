@@ -12,7 +12,9 @@ namespace CofeeMachineProgram
         {
             CoffeeResurs cofRes = new CoffeeResurs();
             string resursfFileValue=cofRes.CreatResurs();
-            cofRes.ResursPourMachin(resursfFileValue);
+            int[] resursForFile=  cofRes.ResursPourMachin(resursfFileValue);
+            DBforMachin dbForMachin = new DBforMachin();
+            dbForMachin.InsertDBResurs(resursForFile);
             int coin = 0;
             int myCoin = 0;
             bool isThrow = true;
@@ -133,5 +135,6 @@ namespace CofeeMachineProgram
             }
         }
     }
+
 }
 

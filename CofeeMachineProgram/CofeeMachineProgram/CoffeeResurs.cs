@@ -52,7 +52,7 @@ namespace CofeeMachineProgram
             
         }
 
-        public void ResursPourMachin(string ResursTxtfile)
+        public int[] ResursPourMachin(string ResursTxtfile)
         {
             int [] resurs=new int [3] ;
             string resultString = string.Empty;
@@ -74,18 +74,18 @@ namespace CofeeMachineProgram
                             resurs[temp] = int.Parse(resultString);
                             temp++;
                             resultString = string.Empty;
-                        }
-                            //resultString += Regex.Match(line, @"\d+").Value;
+                        }                            
                     }
 
                     
-                    Console.WriteLine(resurs);
                 }
+                    return resurs;
             }
             catch (IOException e)
             {
                 Console.WriteLine("The file could not be read:");
                 Console.WriteLine(e.Message);
+                return null;
             }
         }
     }
