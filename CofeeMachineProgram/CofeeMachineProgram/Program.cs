@@ -10,14 +10,24 @@ namespace CofeeMachineProgram
     {
         static void Main(string[] args)
         {
+            int coin = 0;
+            int myCoin = 0;
+            bool isThrow = true;
+            int[] resursCoffeeMachin=new int[3];
             CoffeeResurs cofRes = new CoffeeResurs();
             string resursfFileValue=cofRes.CreatResurs();
             int[] resursForFile=  cofRes.ResursPourMachin(resursfFileValue);
             DBforMachin dbForMachin = new DBforMachin();
             dbForMachin.InsertDBResurs(resursForFile);
-            int coin = 0;
-            int myCoin = 0;
-            bool isThrow = true;
+
+            resursCoffeeMachin= dbForMachin.SelectDBResurs();
+            foreach (int res in resursCoffeeMachin)
+            {
+                if (res < 50)
+                {
+                    Console.WriteLine("You dont  buy Coffe");
+                }
+            }
 
             Console.Write("Please throw a coin. \nYou can only throw (50, 100, 200, 500) coins \nAnd  then Enter 0 and select Coffee type \n");
             while (isThrow)
