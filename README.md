@@ -110,7 +110,7 @@
 ```
 #### After covering the caffeine, the user may be charged 0 and order it again, if available coin
 ### In the program there is a DataBase where the resurs of the Coffee Machin and the trade data are stored
-#### The program updates the database after ordering the Coffee
+#### The program updates the database after ordering the Coffee  
 ```csharp
 public void InsertDBResurs(int[] resurs)
         {
