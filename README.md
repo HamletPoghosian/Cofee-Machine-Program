@@ -1,4 +1,3 @@
-# Task left because of shortage of time 
 # Cofee Machine Program
 ## Program that presents Coffee devices
 ![coffeemachin](https://sc02.alicdn.com/kf/HTB15Mtqo5CYBuNkHFCcq6AHtVXak/Coffee-Machine-Fruit-Powder-Mixer-Maker-Vending.jpg)
