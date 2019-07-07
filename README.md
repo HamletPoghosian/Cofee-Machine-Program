@@ -3,6 +3,7 @@
 ![coffeemachin](https://sc02.alicdn.com/kf/HTB15Mtqo5CYBuNkHFCcq6AHtVXak/Coffee-Machine-Fruit-Powder-Mixer-Maker-Vending.jpg)
 #### The device accepts only 50 100 200 and 500 cents 
 #### If you throw another coin, the device will not accept it and will warn you about it. When you finish , you need to insert 0 and select the type of caffee.
+
 ![coffeemachi](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShRBQVW3rtr_y_Ytgk0P_IYZYsNswOerAn9DkAEeGelgXkYcQI)
 ```csharp
            Console.Write("Please throw a coin. \nYou can only throw (50, 100, 200, 500) coins \nAnd  then Enter 0 and select Coffee type \n");
